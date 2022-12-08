@@ -6,7 +6,7 @@ use KoninklijkeCollective\MyUserManagement\Domain\Model\BackendUser;
 use KoninklijkeCollective\MyUserManagement\Domain\Model\BackendUserGroup;
 use KoninklijkeCollective\MyUserManagement\Domain\Model\FileMount;
 use KoninklijkeCollective\MyUserManagement\Utility\AccessUtility;
-use TYPO3\CMS\Backend\Form\Wizard\SuggestWizardDefaultReceiver;
+//use TYPO3\CMS\Backend\Form\Wizard\SuggestWizardDefaultReceiver;
 
 /**
  * Suggest Receiver: Backend Management
@@ -24,16 +24,7 @@ use TYPO3\CMS\Backend\Form\Wizard\SuggestWizardDefaultReceiver;
  * ],
  * ========================================================================================================================
  */
-final class SuggestBackendManagementReceiver extends SuggestWizardDefaultReceiver
-{
-    /**
-     * Make sure editor can search through backend user
-     *
-     * @inheritDoc
-     * @param  array  $row
-     * @param  int  $uid
-     * @return bool
-     */
+class SuggestBackendManagementReceiver {
     protected function checkRecordAccess($row, $uid): bool
     {
         if (in_array($this->table, [BackendUser::TABLE, BackendUserGroup::TABLE, FileMount::TABLE], true)) {
